@@ -7,6 +7,7 @@ use Linkstreet\LaravelSms\Exceptions\AdapterException;
 use Linkstreet\LaravelSms\Model\Device;
 use Linkstreet\LaravelSms\Tests\Adapters\HttpClient as MockClient;
 use Linkstreet\LaravelSms\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 
 class TwilioAdapterTest extends TestCase
@@ -29,7 +30,7 @@ class TwilioAdapterTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function invalidCredentials()
     {
         $config = $this->config;
@@ -43,7 +44,7 @@ class TwilioAdapterTest extends TestCase
         $adapter->send(new Device('+910123456789', 'IN'), 'Test message');
     }
 
-    /** @test */
+    #[Test]
     public function invalidDevice()
     {
         $stub = [
@@ -66,7 +67,7 @@ class TwilioAdapterTest extends TestCase
         $this->assertSame('Bad Request', $response->getReasonPhrase());
     }
 
-    /** @test */
+    #[Test]
     public function successResponse()
     {
         $stub = [

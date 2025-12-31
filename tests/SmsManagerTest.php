@@ -7,6 +7,7 @@ use Linkstreet\LaravelSms\Adapters\Log\LogAdapter;
 use Linkstreet\LaravelSms\Exceptions\AdapterException;
 use Linkstreet\LaravelSms\Model\Device;
 use Linkstreet\LaravelSms\SmsManager;
+use PHPUnit\Framework\Attributes\Test;
 
 class SmsManagerTest extends TestCase
 {
@@ -21,13 +22,13 @@ class SmsManagerTest extends TestCase
         $this->config = config('sms');
     }
 
-    /** @test */
+    #[Test]
     public function returnInstanceOfManager()
     {
         $this->assertInstanceOf(SmsManager::class, SmsManager::create([]));
     }
 
-    /** @test */
+    #[Test]
     public function setInvalidConnectionString()
     {
         $manager = new SmsManager($this->config);
@@ -37,7 +38,7 @@ class SmsManagerTest extends TestCase
         $manager->connection('viki');
     }
 
-    /** @test */
+    #[Test]
     public function setValidConnectionString()
     {
         $manager = new SmsManager($this->config);
@@ -47,7 +48,7 @@ class SmsManagerTest extends TestCase
         $this->assertSame($manager->connection($this->config['default'])->toArray()['connection'], $connection);
     }
 
-    /** @test */
+    #[Test]
     public function setDevice()
     {
         $device = new Device('+10123456789', 'US');
@@ -59,7 +60,7 @@ class SmsManagerTest extends TestCase
         $this->assertSame($m_device->getCountryIso(), $device->getCountryIso());
     }
 
-    /** @test */
+    #[Test]
     public function resolveConnection()
     {
         $manager = (new SmsManager($this->config))->connection($this->config['default']);
@@ -69,7 +70,7 @@ class SmsManagerTest extends TestCase
         $this->assertSame($manager->resolveConnection($device), $this->config['default']);
     }
 
-    /** @test */
+    #[Test]
     public function resolveDefaultConnection()
     {
         $manager = new SmsManager($this->config);
@@ -79,7 +80,7 @@ class SmsManagerTest extends TestCase
         $this->assertSame($manager->resolveConnection($device), $this->config['default']);
     }
 
-    /** @test */
+    #[Test]
     public function returnsConnectionAdapter()
     {
         $manager = new SmsManager($this->config);
@@ -91,7 +92,7 @@ class SmsManagerTest extends TestCase
         $this->assertInstanceOf(Adapter::find($default_adapter), $adapter);
     }
 
-    /** @test */
+    #[Test]
     public function returnsLogAdapter()
     {
         $manager = new SmsManager(array_merge($this->config, ['enabled' => false]));
