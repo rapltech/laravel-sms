@@ -43,5 +43,11 @@
                 "Sms": "Linkstreet\\LaravelSms\\Facades\\Sms"
             }
         }
+    },
+    "config": {
+        "platform": {
+            "php": "8.5.0"
+        },
+        "platform-check": false
     }
 }
