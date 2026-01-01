@@ -52,7 +52,8 @@ class KapAdapterTest extends TestCase
             'messages' => [
                 [
                     'messageId' => '',
-                    'to' => '0010123456789'
+                    'to' => '0010123456789',
+                    'status' => -13,
                 ]
             ]
         ];
@@ -79,6 +80,7 @@ class KapAdapterTest extends TestCase
                     'messageId' => '43406163014203536863',
                     'to' => '910123456789',
                     'smsCount' => '1',
+                    'status' => 0,
                 ]
             ]
         ];
