@@ -6,14 +6,9 @@
          processIsolation="false"
          stopOnError="false"
          stopOnFailure="false"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/12.5/phpunit.xsd"
          cacheDirectory=".phpunit.cache"
          backupStaticProperties="false">
-  <coverage includeUncoveredFiles="false">
-    <include>
-      <directory suffix=".php">src/</directory>
-    </include>
-  </coverage>
   <testsuites>
     <testsuite name="Linkstreet\LaravelSms Test Suite">
       <directory suffix="Test.php">./tests/</directory>
@@ -22,4 +17,9 @@
   <php>
     <env name="APP_ENV" value="testing"/>
   </php>
+  <source>
+    <include>
+      <directory suffix=".php">src/</directory>
+    </include>
+  </source>
 </phpunit>

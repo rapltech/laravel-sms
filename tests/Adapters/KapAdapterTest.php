@@ -7,6 +7,7 @@ use Linkstreet\LaravelSms\Exceptions\AdapterException;
 use Linkstreet\LaravelSms\Model\Device;
 use Linkstreet\LaravelSms\Tests\Adapters\HttpClient as MockClient;
 use Linkstreet\LaravelSms\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 
 class KapAdapterTest extends TestCase
@@ -30,7 +31,7 @@ class KapAdapterTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function invalidCredentials()
     {
         $config = $this->config;
@@ -44,13 +45,15 @@ class KapAdapterTest extends TestCase
         $adapter->send(new Device('+910123456789', 'IN'), 'Test message');
     }
 
+    #[Test]
     public function invalidDevice()
     {
         $stub = [
             'messages' => [
                 [
                     'messageId' => '',
-                    'to' => '0010123456789'
+                    'to' => '0010123456789',
+                    'status' => -13,
                 ]
             ]
         ];
@@ -68,6 +71,7 @@ class KapAdapterTest extends TestCase
         $this->assertSame('OK', $response->getReasonPhrase());
     }
 
+    #[Test]
     public function successResponse()
     {
         $stub = [
@@ -76,6 +80,7 @@ class KapAdapterTest extends TestCase
                     'messageId' => '43406163014203536863',
                     'to' => '910123456789',
                     'smsCount' => '1',
+                    'status' => 0,
                 ]
             ]
         ];
