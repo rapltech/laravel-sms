@@ -1,9 +1,9 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Tests;
+namespace Rapltech\LaravelSms\Tests;
 
-use Linkstreet\LaravelSms\Facades\Sms as SmsFacade;
-use Linkstreet\LaravelSms\SmsManager;
+use Rapltech\LaravelSms\Facades\Sms as SmsFacade;
+use Rapltech\LaravelSms\SmsManager;
 use PHPUnit\Framework\Attributes\Test;
 
 class SmsFacadeTest extends TestCase

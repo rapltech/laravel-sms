@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Exceptions;
+namespace Rapltech\LaravelSms\Exceptions;
 
 class MessageException extends \Exception
 {

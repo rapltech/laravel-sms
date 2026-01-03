@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Adapters;
+namespace Rapltech\LaravelSms\Adapters;
 
 use GuzzleHttp\Client;
 

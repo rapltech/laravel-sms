@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Contracts;
+namespace Rapltech\LaravelSms\Contracts;
 
 /**
  * ResponseInterface.

@@ -1,8 +1,8 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Contracts;
+namespace Rapltech\LaravelSms\Contracts;
 
-use Linkstreet\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Model\Device;
 
 /**
  * AdapterInterface.
@@ -11,7 +11,7 @@ interface AdapterInterface
 {
     /**
      * Send SMS
-     * @param \Linkstreet\LaravelSms\Model\Device $device
+     * @param \Rapltech\LaravelSms\Model\Device $device
      * @param string $message
      * @return ResponseInterface
      */

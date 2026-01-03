@@ -1,12 +1,12 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Tests\Adapters;
+namespace Rapltech\LaravelSms\Tests\Adapters;
 
-use Linkstreet\LaravelSms\Adapters\Kap\KapAdapter;
-use Linkstreet\LaravelSms\Exceptions\AdapterException;
-use Linkstreet\LaravelSms\Model\Device;
-use Linkstreet\LaravelSms\Tests\Adapters\HttpClient as MockClient;
-use Linkstreet\LaravelSms\Tests\TestCase;
+use Rapltech\LaravelSms\Adapters\Kap\KapAdapter;
+use Rapltech\LaravelSms\Exceptions\AdapterException;
+use Rapltech\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Tests\Adapters\HttpClient as MockClient;
+use Rapltech\LaravelSms\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 

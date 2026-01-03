@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Model;
+namespace Rapltech\LaravelSms\Model;
 
 /**
  * Device class

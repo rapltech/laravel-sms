@@ -1,10 +1,10 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Providers;
+namespace Rapltech\LaravelSms\Providers;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
-use Linkstreet\LaravelSms\SmsManager;
+use Rapltech\LaravelSms\SmsManager;
 
 class SmsServiceProvider extends ServiceProvider implements DeferrableProvider
 {

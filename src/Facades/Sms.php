@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Facades;
+namespace Rapltech\LaravelSms\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
