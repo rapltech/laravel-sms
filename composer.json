@@ -1,5 +1,5 @@
 {
-    "name": "linkstreet/laravel-sms",
+    "name": "rapltech/laravel-sms",
     "type": "library",
     "description": "Package to support multi SMS gateway providers",
     "license": "MIT",
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Linkstreet\\LaravelSms\\": "src"
+            "Rapltech\\LaravelSms\\": "src"
         }
     },
     "require-dev": {
@@ -31,16 +31,16 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Linkstreet\\LaravelSms\\Tests\\": "tests"
+            "Rapltech\\LaravelSms\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Linkstreet\\LaravelSms\\Providers\\SmsServiceProvider"
+                "Rapltech\\LaravelSms\\Providers\\SmsServiceProvider"
             ],
             "aliases": {
-                "Sms": "Linkstreet\\LaravelSms\\Facades\\Sms"
+                "Sms": "Rapltech\\LaravelSms\\Facades\\Sms"
             }
         }
     }

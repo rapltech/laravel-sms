@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Tests\Adapters;
+namespace Rapltech\LaravelSms\Tests\Adapters;
 
 trait HttpClient
 {

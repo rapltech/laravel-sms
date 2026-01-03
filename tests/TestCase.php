@@ -1,6 +1,6 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Tests;
+namespace Rapltech\LaravelSms\Tests;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -20,7 +20,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      */
     protected function getPackageProviders($app)
     {
-        return ['Linkstreet\LaravelSms\Providers\SmsServiceProvider'];
+        return ['Rapltech\LaravelSms\Providers\SmsServiceProvider'];
     }
 
     /**
@@ -29,7 +29,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Sms' => 'Linkstreet\LaravelSms\Facades\Sms'
+            'Sms' => 'Rapltech\LaravelSms\Facades\Sms'
         ];
     }
 }

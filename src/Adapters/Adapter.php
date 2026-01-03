@@ -1,8 +1,8 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Adapters;
+namespace Rapltech\LaravelSms\Adapters;
 
-use Linkstreet\LaravelSms\Exceptions\AdapterException;
+use Rapltech\LaravelSms\Exceptions\AdapterException;
 
 class Adapter
 {

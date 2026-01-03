@@ -10,7 +10,7 @@
          cacheDirectory=".phpunit.cache"
          backupStaticProperties="false">
   <testsuites>
-    <testsuite name="Linkstreet\LaravelSms Test Suite">
+    <testsuite name="Rapltech\LaravelSms Test Suite">
       <directory suffix="Test.php">./tests/</directory>
     </testsuite>
   </testsuites>

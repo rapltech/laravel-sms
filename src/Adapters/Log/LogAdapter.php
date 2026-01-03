@@ -1,11 +1,11 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Adapters\Log;
+namespace Rapltech\LaravelSms\Adapters\Log;
 
 use Illuminate\Support\Facades\Log;
-use Linkstreet\LaravelSms\Contracts\AdapterInterface;
-use Linkstreet\LaravelSms\Contracts\ResponseInterface;
-use Linkstreet\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Contracts\AdapterInterface;
+use Rapltech\LaravelSms\Contracts\ResponseInterface;
+use Rapltech\LaravelSms\Model\Device;
 
 class LogAdapter implements AdapterInterface
 {

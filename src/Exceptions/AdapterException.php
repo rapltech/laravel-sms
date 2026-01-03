@@ -1,8 +1,8 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Exceptions;
+namespace Rapltech\LaravelSms\Exceptions;
 
-use Linkstreet\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Model\Device;
 
 class AdapterException extends \Exception
 {

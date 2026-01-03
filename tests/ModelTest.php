@@ -1,8 +1,8 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Tests;
+namespace Rapltech\LaravelSms\Tests;
 
-use Linkstreet\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Model\Device;
 
 class ModelTest extends TestCase
 {

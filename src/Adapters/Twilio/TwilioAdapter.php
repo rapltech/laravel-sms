@@ -1,14 +1,14 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Adapters\Twilio;
+namespace Rapltech\LaravelSms\Adapters\Twilio;
 
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
-use Linkstreet\LaravelSms\Adapters\HttpClient;
-use Linkstreet\LaravelSms\Contracts\AdapterInterface;
-use Linkstreet\LaravelSms\Contracts\ResponseInterface;
-use Linkstreet\LaravelSms\Exceptions\AdapterException;
-use Linkstreet\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Adapters\HttpClient;
+use Rapltech\LaravelSms\Contracts\AdapterInterface;
+use Rapltech\LaravelSms\Contracts\ResponseInterface;
+use Rapltech\LaravelSms\Exceptions\AdapterException;
+use Rapltech\LaravelSms\Model\Device;
 
 /**
  * TwilioAdapter

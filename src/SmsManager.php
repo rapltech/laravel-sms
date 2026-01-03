@@ -1,15 +1,15 @@
 <?php
 
-namespace Linkstreet\LaravelSms;
+namespace Rapltech\LaravelSms;
 
-use Linkstreet\LaravelSms\Adapters\Adapter;
-use Linkstreet\LaravelSms\Adapters\Log\LogAdapter;
-use Linkstreet\LaravelSms\Contracts\AdapterInterface;
-use Linkstreet\LaravelSms\Contracts\ResponseInterface;
-use Linkstreet\LaravelSms\Exceptions\AdapterException;
-use Linkstreet\LaravelSms\Exceptions\DeviceException;
-use Linkstreet\LaravelSms\Exceptions\MessageException;
-use Linkstreet\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Adapters\Adapter;
+use Rapltech\LaravelSms\Adapters\Log\LogAdapter;
+use Rapltech\LaravelSms\Contracts\AdapterInterface;
+use Rapltech\LaravelSms\Contracts\ResponseInterface;
+use Rapltech\LaravelSms\Exceptions\AdapterException;
+use Rapltech\LaravelSms\Exceptions\DeviceException;
+use Rapltech\LaravelSms\Exceptions\MessageException;
+use Rapltech\LaravelSms\Model\Device;
 
 /**
  * SmsManager class to send the sms based on the adapter
@@ -23,7 +23,7 @@ class SmsManager
     private $connection;
 
     /**
-     * @var \Linkstreet\LaravelSms\Model\Device
+     * @var \Rapltech\LaravelSms\Model\Device
      */
     private $device;
 
@@ -74,7 +74,7 @@ class SmsManager
 
     /**
      * Add device
-     * @param \Linkstreet\LaravelSms\Model\Device $device
+     * @param \Rapltech\LaravelSms\Model\Device $device
      * @return self
      */
     public function to(Device $device): self

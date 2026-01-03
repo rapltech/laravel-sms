@@ -1,9 +1,9 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Adapters\Log;
+namespace Rapltech\LaravelSms\Adapters\Log;
 
-use Linkstreet\LaravelSms\Contracts\ResponseInterface;
-use Linkstreet\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Contracts\ResponseInterface;
+use Rapltech\LaravelSms\Model\Device;
 
 class LogResponse implements ResponseInterface
 {

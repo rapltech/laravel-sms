@@ -1,10 +1,10 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Adapters\Kap;
+namespace Rapltech\LaravelSms\Adapters\Kap;
 
-use Linkstreet\LaravelSms\Contracts\ResponseInterface;
-use Linkstreet\LaravelSms\Exceptions\AdapterException;
-use Linkstreet\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\Contracts\ResponseInterface;
+use Rapltech\LaravelSms\Exceptions\AdapterException;
+use Rapltech\LaravelSms\Model\Device;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 
 /**

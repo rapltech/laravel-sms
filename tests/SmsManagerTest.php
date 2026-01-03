@@ -1,12 +1,12 @@
 <?php
 
-namespace Linkstreet\LaravelSms\Tests;
+namespace Rapltech\LaravelSms\Tests;
 
-use Linkstreet\LaravelSms\Adapters\Adapter;
-use Linkstreet\LaravelSms\Adapters\Log\LogAdapter;
-use Linkstreet\LaravelSms\Exceptions\AdapterException;
-use Linkstreet\LaravelSms\Model\Device;
-use Linkstreet\LaravelSms\SmsManager;
+use Rapltech\LaravelSms\Adapters\Adapter;
+use Rapltech\LaravelSms\Adapters\Log\LogAdapter;
+use Rapltech\LaravelSms\Exceptions\AdapterException;
+use Rapltech\LaravelSms\Model\Device;
+use Rapltech\LaravelSms\SmsManager;
 use PHPUnit\Framework\Attributes\Test;
 
 class SmsManagerTest extends TestCase
