@@ -10,8 +10,9 @@
 
 To install this package you will need:
 
-- Laravel 12.x
+- Laravel 13.x
 - PHP 8.5+
+- Guzzle 8.x
 
 Run this command to install via composer
 

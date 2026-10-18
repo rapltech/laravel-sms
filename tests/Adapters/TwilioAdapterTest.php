@@ -2,6 +2,11 @@
 
 namespace Linkstreet\LaravelSms\Tests\Adapters;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Request;
 use Linkstreet\LaravelSms\Adapters\Twilio\TwilioAdapter;
 use Linkstreet\LaravelSms\Exceptions\AdapterException;
 use Linkstreet\LaravelSms\Model\Device;
@@ -65,6 +70,18 @@ class TwilioAdapterTest extends TestCase
         $this->assertEquals($stub['code'], $response->getErrorCode());
         $this->assertEquals($stub['message'], $response->getErrorMessage());
         $this->assertSame('Bad Request', $response->getReasonPhrase());
+    }
+
+    #[Test]
+    public function requestFailureWithoutResponseIsRethrown()
+    {
+        $exception = new RequestException('Request failed', new Request('POST', 'https://api.twilio.com'));
+        $client = new Client(['handler' => HandlerStack::create(new MockHandler([$exception]))]);
+        $adapter = (new TwilioAdapter($this->config))->setClient($client);
+
+        $this->expectExceptionObject($exception);
+
+        $adapter->send(new Device('+910123456789', 'IN'), 'Test message');
     }
 
     #[Test]
