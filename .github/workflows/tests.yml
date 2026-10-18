@@ -12,7 +12,7 @@ jobs:
         php: ['8.5']
         dependency-version: [prefer-stable]
 
-    name: Laravel 13 - PHP ${{ matrix.php }} - Guzzle 8 - ${{ matrix.dependency-version }} - ${{ matrix.os }}
+    name: PHP ${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
     steps:
       - name: Checkout code

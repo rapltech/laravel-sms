@@ -24,7 +24,7 @@ or edit the `composer.json`
 
 ```php
 "require": {
-    "linkstreet/laravel-sms": "^6.5"
+    "linkstreet/laravel-sms": "^6.6"
 }
 ```
 

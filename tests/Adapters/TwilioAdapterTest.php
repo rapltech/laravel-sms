@@ -2,16 +2,20 @@
 
 namespace Linkstreet\LaravelSms\Tests\Adapters;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\NetworkException;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Exception\ResponseTimeoutException;
+use GuzzleHttp\Exception\ResponseTransferException;
+use GuzzleHttp\Exception\TooManyRedirectsException;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 use Linkstreet\LaravelSms\Adapters\Twilio\TwilioAdapter;
 use Linkstreet\LaravelSms\Exceptions\AdapterException;
 use Linkstreet\LaravelSms\Model\Device;
 use Linkstreet\LaravelSms\Tests\Adapters\HttpClient as MockClient;
 use Linkstreet\LaravelSms\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 
@@ -73,15 +77,56 @@ class TwilioAdapterTest extends TestCase
     }
 
     #[Test]
-    public function requestFailureWithoutResponseIsRethrown()
+    public function serverErrorReturnsFailureResponse()
     {
-        $exception = new RequestException('Request failed', new Request('POST', 'https://api.twilio.com'));
-        $client = new Client(['handler' => HandlerStack::create(new MockHandler([$exception]))]);
-        $adapter = (new TwilioAdapter($this->config))->setClient($client);
+        $stub = [
+            'code' => 20500,
+            'message' => 'Internal server error',
+            'status' => 500,
+        ];
+
+        $adapter = (new TwilioAdapter($this->config))->setClient($this->mockClient(500, $stub));
+
+        $response = $adapter->send(new Device('+910123456789', 'IN'), 'Test message');
+
+        $this->assertSame(500, $response->getStatusCode());
+        $this->assertInstanceOf(PsrResponseInterface::class, $response->getRaw());
+        $this->assertFalse($response->isSuccess());
+        $this->assertTrue($response->isFailure());
+        $this->assertSame($stub['code'], $response->getErrorCode());
+        $this->assertSame($stub['message'], $response->getErrorMessage());
+        $this->assertSame('Internal Server Error', $response->getReasonPhrase());
+    }
+
+    #[Test]
+    #[DataProvider('transferFailures')]
+    public function transferFailurePropagates(\Throwable $exception)
+    {
+        $adapter = (new TwilioAdapter($this->config))->setClient($this->mockClient($exception));
 
         $this->expectExceptionObject($exception);
 
         $adapter->send(new Device('+910123456789', 'IN'), 'Test message');
+    }
+
+    public static function transferFailures(): array
+    {
+        $request = new Request('POST', 'https://api.twilio.com');
+        $response = new Response(201, [], '{"error_code":null,"error_message":null}');
+
+        return [
+            'request without response' => [new RequestException('Request failed', $request)],
+            'network failure' => [new NetworkException('Network failed', $request)],
+            'connection failure' => [new ConnectException('Connection failed', $request)],
+            'body transfer failure' => [new ResponseTransferException('Transfer failed', $request, $response)],
+            'body timeout with valid JSON' => [new ResponseTimeoutException('Body timed out', $request, $response)],
+            'body timeout with partial JSON' => [
+                new ResponseTimeoutException('Body timed out', $request, new Response(201, [], '{"sid":')),
+            ],
+            'redirect limit' => [
+                new TooManyRedirectsException('Too many redirects', $request, new Response(302, ['Location' => 'https://api.twilio.com'])),
+            ],
+        ];
     }
 
     #[Test]

@@ -2,7 +2,7 @@
 
 namespace Linkstreet\LaravelSms\Adapters\Twilio;
 
-use GuzzleHttp\Exception\ResponseException;
+use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Request;
 use Linkstreet\LaravelSms\Adapters\HttpClient;
 use Linkstreet\LaravelSms\Contracts\AdapterInterface;
@@ -42,7 +42,7 @@ class TwilioAdapter implements AdapterInterface
 
         try {
             $response = $this->client->send($this->buildRequest(), $this->buildOptions($device, $message));
-        } catch (ResponseException $exception) {
+        } catch (BadResponseException $exception) {
             $response = $exception->getResponse();
         }
 
