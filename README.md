@@ -11,7 +11,7 @@
 To install this package you will need:
 
 - Laravel 13.x
-- PHP 8.5+
+- PHP 8.5 or 8.6
 - Guzzle 8.x
 
 Run this command to install via composer
@@ -34,6 +34,17 @@ Then run composer update in your terminal to pull the package.
 ### Supported SMS gateway providers
 - [KAP System](https://kapsystem.com)
 - [Twilio](https://www.twilio.com/)
+
+
+### Testing
+
+The test suite runs against Laravel 13.x on PHP 8.5 and 8.6 in CI. Warnings and
+deprecations fail the build.
+
+```sh
+composer update --prefer-stable --prefer-dist
+vendor/bin/phpunit --fail-on-warning --fail-on-deprecation --fail-on-phpunit-deprecation
+```
 
 
 ### License
