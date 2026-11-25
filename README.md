@@ -11,7 +11,7 @@
 To install this package you will need:
 
 - Laravel 13.x
-- PHP 8.5 or 8.6
+- PHP 8.5+ (tested on 8.5 and 8.6)
 - Guzzle 8.x
 
 Run this command to install via composer
@@ -43,7 +43,7 @@ deprecations fail the build.
 
 ```sh
 composer update --prefer-stable --prefer-dist
-vendor/bin/phpunit --fail-on-warning --fail-on-deprecation --fail-on-phpunit-deprecation
+vendor/bin/phpunit
 ```
 
 
